@@ -1,0 +1,8 @@
+Pregunta: ¿Por qué en la compilación con gcc no se le pasa array_helpers.h como parámetro?
+
+Respuesta: Por que incluimos archivos ".h" (archivos cabecera que solo contienen
+definiciones de funciones, estruturas, etc) en los archivos ".c" bajo la directiva
+#include. El compilador, cuando compila, valga la redundancia, lee las directivas #include y la incluye en el codigo fuente para generar el codigo ejecutable.
+
+No me queda muy claro, hasta que punto esto es una convención o es que puedo yo
+pasarle al compilador el .h, no incluirlo en el punto .c y que todo no estalle. 
