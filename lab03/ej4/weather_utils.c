@@ -43,18 +43,19 @@ void proc_max_anual(WeatherTable a, int output[YEARS]) {
 void proc_max_pres_m(WeatherTable a, unsigned int output[YEARS]){
     
     for (unsigned int year = 0; year < YEARS; year++) {
-        unsigned int maxperday = 0; 
-        unsigned int maxpermonth = 0;
-        for(unsigned int month = 0; month < MONTHS; month ++){
+         for(unsigned int month = 0; month < MONTHS; month ++){
+            unsigned int maxpermonth = 0;
+            unsigned int maxperday = 0; 
             for(unsigned int day = 0; day < DAYS; day++){
                 if(a[year][month][day]._rainfall >= maxperday){
-                    maxperday = a[year][month][day]._rainfall;
+                    maxperday += a[year][month][day]._rainfall;
                 }
             }
             if(maxperday > maxpermonth){
-                maxpermonth = maxperday;
                 output[year + 1980] = month+1;
+                maxpermonth = maxperday;
             }
+            
         }
     }
 }
